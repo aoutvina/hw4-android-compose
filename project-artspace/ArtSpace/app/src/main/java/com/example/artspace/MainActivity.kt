@@ -33,6 +33,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Surface
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.unit.dp
 
 
 
@@ -60,22 +65,45 @@ fun ArtworkDisplay(artwork: Artwork, modifier: Modifier = Modifier) {
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Image(
-            painter = painterResource(id = artwork.imageResId),
-            contentDescription = artwork.title,
+        // Framed artwork image
+        Surface(
             modifier = Modifier
-                .padding(bottom = 16.dp)
                 .fillMaxWidth(0.7f)
-                .height(300.dp)
-        )
-        Text(
-            text = artwork.title,
-            style = MaterialTheme.typography.headlineMedium
-        )
-        Text(
-            text = "${artwork.artist} (${artwork.year})",
-            style = MaterialTheme.typography.bodyLarge
-        )
+                .padding(bottom = 24.dp),
+            shape = RoundedCornerShape(12.dp),
+            shadowElevation = 8.dp,
+            color = MaterialTheme.colorScheme.surface
+        ) {
+            Image(
+                painter = painterResource(id = artwork.imageResId),
+                contentDescription = artwork.title,
+                modifier = Modifier
+                    .padding(12.dp)
+                    .fillMaxWidth()
+                    .height(300.dp)
+            )
+        }
+
+        // Info card: title + artist + year
+        Surface(
+            modifier = Modifier.fillMaxWidth(0.7f),
+            shape = RoundedCornerShape(8.dp),
+            color = MaterialTheme.colorScheme.surfaceVariant
+        ) {
+            Column(
+                modifier = Modifier.padding(16.dp),
+                horizontalAlignment = Alignment.Start
+            ) {
+                Text(
+                    text = artwork.title,
+                    style = MaterialTheme.typography.headlineSmall
+                )
+                Text(
+                    text = "${artwork.artist} (${artwork.year})",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+        }
     }
 }
 
