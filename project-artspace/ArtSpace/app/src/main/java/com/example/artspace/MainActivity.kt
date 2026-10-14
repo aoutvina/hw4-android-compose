@@ -1,5 +1,7 @@
 package com.example.artspace
 
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -33,6 +35,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 
 
+
 data class Artwork(
     val id: Int,
     val imageResId: Int,
@@ -62,7 +65,7 @@ fun ArtworkDisplay(artwork: Artwork, modifier: Modifier = Modifier) {
             contentDescription = artwork.title,
             modifier = Modifier
                 .padding(bottom = 16.dp)
-                .fillMaxWidth()
+                .fillMaxWidth(0.7f)
                 .height(300.dp)
         )
         Text(
@@ -83,7 +86,8 @@ fun ArtSpaceLayout(modifier: Modifier = Modifier) {
         modifier = modifier
             .statusBarsPadding()
             .safeDrawingPadding()
-            .padding(24.dp),
+            .padding(all = 24.dp)
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
