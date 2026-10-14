@@ -5,19 +5,22 @@ Objective
   Learn to write and run automated tests for Android apps:
   local (unit) tests and instrumentation (UI) tests.
 
-Project
-  Continued in: codelab1-state/TipTime/  (same project)
+Final Features
+  • Local unit test verifying calculateTip() with 20% on $10 = $2
+  • Instrumentation test typing into the UI and asserting $2.00 tip
+  • calculateTip() made internal + @VisibleForTesting
 
-What's New
-  • Local unit test for the calculateTip() function
-  • Instrumentation test for the Compose UI
-  • Running tests in Android Studio
+New Concepts Learned
+  • Local tests (JVM, fast) vs instrumentation tests (device/emulator)
+  • @Test, @Rule, assertEquals, assertExists
+  • createComposeRule() for Compose UI tests
+  • onNodeWithText, performTextInput
+  • Test directory structure: test/ vs androidTest/
 
 Reference
   https://developer.android.com/codelabs/basic-android-kotlin-compose-write-automated-tests
 
 Progress
-  ✅ Codelab started (this file)
-  ⬜ Add local unit test for calculateTip()
-  ⬜ Add instrumentation test for TipTimeLayout
-  ⬜ Run tests and verify green
+  ✅ Codelab started
+  ✅ Local test for calculateTip 20 percent (PASSED)
+  ✅ Instrumentation test for TipTimeLayout (PASSED)
