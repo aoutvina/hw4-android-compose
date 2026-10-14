@@ -12,6 +12,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.artspace.ui.theme.ArtSpaceTheme
+import androidx.compose.foundation.Image
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 
 data class Artwork(
     val imageResId: Int,
@@ -29,6 +41,47 @@ val artworkList = listOf(
     Artwork(R.drawable.art6, "Colors Within", "Zara Okonkwo", "2024"),
     Artwork(R.drawable.art7, "Sunset Celebration", "Kofi Mensah", "2019")
 )
+
+@Composable
+fun ArtworkDisplay(artwork: Artwork, modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            painter = painterResource(id = artwork.imageResId),
+            contentDescription = artwork.title,
+            modifier = Modifier
+                .padding(bottom = 16.dp)
+                .fillMaxWidth()
+                .height(300.dp)
+        )
+        Text(
+            text = artwork.title,
+            style = MaterialTheme.typography.headlineMedium
+        )
+        Text(
+            text = "${artwork.artist} (${artwork.year})",
+            style = MaterialTheme.typography.bodyLarge
+        )
+    }
+}
+
+@Composable
+fun ArtSpaceLayout(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .statusBarsPadding()
+            .safeDrawingPadding()
+            .padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        ArtworkDisplay(artwork = artworkList[0])
+
+        Spacer(modifier = Modifier.height(32.dp))
+    }
+}
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,28 +89,17 @@ class MainActivity : ComponentActivity() {
         setContent {
             ArtSpaceTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    ArtSpaceLayout(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun ArtSpaceLayoutPreview() {
     ArtSpaceTheme {
-        Greeting("Android")
+        ArtSpaceLayout()
     }
 }
