@@ -2,28 +2,35 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Objective
-  Build a digital art gallery that shows artwork one at a
-  time, with Previous/Next buttons to cycle through them.
+  Digital art gallery that displays artwork one at a time,
+  with Previous/Next buttons to cycle through a curated
+  collection.
 
-Structure
-  1. Artwork wall        — Image composable
-  2. Artwork descriptor  — Title, artist, year
-  3. Display controller  — Previous / Next buttons
+Final Architecture
+  1. Artwork wall        — Image composable inside a framed Surface
+  2. Artwork descriptor  — Title, artist, and year inside an info card Surface
+  3. Display controller  — Previous (OutlinedButton) + Next (Button)
 
-Data
-  7 artwork images (art1.jpeg … art7.jpeg) with title,
-  artist, and year for each.
+Data Model
+  data class Artwork(id, imageResId, title, artist, year)
+  7 artworks with sequential 1-based IDs
 
 State
   currentArtworkIndex: Int (0..6)
-  Buttons increment/decrement it, wrapping at the ends.
+  Next: index + 1, wraps to 0 at end
+  Previous: index - 1, wraps to last at start
+
+Polish
+  • Framed artwork via Surface with rounded corners + shadow
+  • Info card Surface with Material color scheme
+  • Vertical scroll + width constraint for tablet landscape
 
 Commit plan
   ✅ Create project + add 7 artwork images
-  ⬜ Define Artwork data class and sample list
-  ⬜ Build ArtworkDisplay composable (Image + Text)
-  ⬜ Add Next/Previous buttons (static)
-  ⬜ Add currentArtworkIndex state and wire buttons
-  ⬜ Style layout (padding, Surface, alignment)
-  ⬜ Add contentDescription for accessibility
-  ⬜ Finalize notes and screenshots
+  ✅ Define Artwork data class and sample list
+  ✅ Build ArtworkDisplay composable
+  ✅ Add static Previous/Next buttons
+  ✅ Add currentArtworkIndex state and wire buttons
+  ✅ Add 1-based ids to Artwork (codelab strict mode)
+  ✅ Fix tablet landscape layout (scroll + width constraint)
+  ✅ Polish UI with Surface frames and info card
