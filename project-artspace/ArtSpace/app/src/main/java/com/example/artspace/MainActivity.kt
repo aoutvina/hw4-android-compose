@@ -20,6 +20,15 @@ data class Artwork(
     val year: String
 )
 
+val artworkList = listOf(
+    Artwork(R.drawable.art1, "Chromatic Cascade", "Elena Marsh", "2023"),
+    Artwork(R.drawable.art2, "Painted Gaze", "Marco Silva", "2022"),
+    Artwork(R.drawable.art3, "Silent Pride", "Aria Nkosi", "2021"),
+    Artwork(R.drawable.art4, "The Word Made Flesh", "Jonas Beck", "2020"),
+    Artwork(R.drawable.art5, "Window to Wonder", "Lila Chandra", "2023"),
+    Artwork(R.drawable.art6, "Colors Within", "Zara Okonkwo", "2024"),
+    Artwork(R.drawable.art7, "Sunset Celebration", "Kofi Mensah", "2019")
+)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
