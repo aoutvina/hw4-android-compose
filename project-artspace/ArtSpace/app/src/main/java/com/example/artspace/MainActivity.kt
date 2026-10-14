@@ -24,6 +24,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.foundation.layout.Row
+
 
 data class Artwork(
     val imageResId: Int,
@@ -80,6 +84,17 @@ fun ArtSpaceLayout(modifier: Modifier = Modifier) {
         ArtworkDisplay(artwork = artworkList[0])
 
         Spacer(modifier = Modifier.height(32.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            OutlinedButton(onClick = { /* TODO */ }) {
+                Text("Previous")
+            }
+            Button(onClick = { /* TODO */ }) {
+                Text("Next")
+            }
+        }
     }
 }
 class MainActivity : ComponentActivity() {
