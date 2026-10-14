@@ -27,6 +27,10 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.foundation.layout.Row
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 
 
 data class Artwork(
@@ -73,6 +77,7 @@ fun ArtworkDisplay(artwork: Artwork, modifier: Modifier = Modifier) {
 
 @Composable
 fun ArtSpaceLayout(modifier: Modifier = Modifier) {
+    var currentArtworkIndex by remember { mutableIntStateOf(0) }
     Column(
         modifier = modifier
             .statusBarsPadding()
@@ -81,17 +86,29 @@ fun ArtSpaceLayout(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        ArtworkDisplay(artwork = artworkList[0])
+        ArtworkDisplay(artwork = artworkList[currentArtworkIndex])
 
         Spacer(modifier = Modifier.height(32.dp))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            OutlinedButton(onClick = { /* TODO */ }) {
+            OutlinedButton(
+                onClick = {
+                    currentArtworkIndex =
+                        if (currentArtworkIndex > 0) currentArtworkIndex - 1
+                        else artworkList.lastIndex
+                }
+            ) {
                 Text("Previous")
             }
-            Button(onClick = { /* TODO */ }) {
+            Button(
+                onClick = {
+                    currentArtworkIndex =
+                        if (currentArtworkIndex < artworkList.lastIndex) currentArtworkIndex + 1
+                        else 0
+                }
+            ) {
                 Text("Next")
             }
         }
