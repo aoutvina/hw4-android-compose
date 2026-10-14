@@ -34,6 +34,7 @@ import androidx.compose.runtime.setValue
 
 
 data class Artwork(
+    val id: Int,
     val imageResId: Int,
     val title: String,
     val artist: String,
@@ -41,13 +42,13 @@ data class Artwork(
 )
 
 val artworkList = listOf(
-    Artwork(R.drawable.art7, "Chromatic Cascade", "Elena Marsh", "2023"),
-    Artwork(R.drawable.art6, "Painted Gaze", "Marco Silva", "2022"),
-    Artwork(R.drawable.art5, "Silent Pride", "Aria Nkosi", "2021"),
-    Artwork(R.drawable.art4, "The Word Made Flesh", "Jonas Beck", "2020"),
-    Artwork(R.drawable.art3, "Window to Wonder", "Lila Chandra", "2023"),
-    Artwork(R.drawable.art2, "Colors Within", "Zara Okonkwo", "2024"),
-    Artwork(R.drawable.art1, "Sunset Celebration", "Kofi Mensah", "2019")
+    Artwork(1, R.drawable.art7, "Chromatic Cascade", "Elena Marsh", "2023"),
+    Artwork(2, R.drawable.art6, "Painted Gaze", "Marco Silva", "2022"),
+    Artwork(3, R.drawable.art5, "Silent Pride", "Aria Nkosi", "2021"),
+    Artwork(4, R.drawable.art4, "The Word Made Flesh", "Jonas Beck", "2020"),
+    Artwork(5, R.drawable.art3, "Window to Wonder", "Lila Chandra", "2023"),
+    Artwork(6, R.drawable.art2, "Colors Within", "Zara Okonkwo", "2024"),
+    Artwork(7, R.drawable.art1, "Sunset Celebration", "Kofi Mensah", "2019")
 )
 
 @Composable
