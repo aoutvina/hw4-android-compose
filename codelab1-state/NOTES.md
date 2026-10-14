@@ -1,42 +1,34 @@
-✦ Practice Task — Add EditNumberField with a TextField
+✦ Remaining Practice Tasks — Codelab 1
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
 
-Codelab section: Take input from the user
+Task A — Add state to EditNumberField
+
+&#x20; • Inside EditNumberField, remember a String state (initially empty).
+
+&#x20; • Pass it to TextField's value parameter.
+
+&#x20; • Update it inside onValueChange.
+
+&#x20; • Imports: getValue, mutableStateOf, remember, setValue
 
 
 
-What to do
+Task B — Hoist state to TipTimeLayout
 
-&#x20; • In MainActivity.kt, add a composable named EditNumberField
+&#x20; • Move the state variable up into TipTimeLayout.
 
-&#x20;   that takes a Modifier parameter.
+&#x20; • Pass value + onValueChange down to EditNumberField.
 
-&#x20; • Inside it, add a TextField with:
+&#x20; • Convert the user's input to a Double (with toDoubleOrNull fallback).
 
-&#x20;       value = ""
-
-&#x20;       onValueChange = {}
-
-&#x20;       modifier = modifier
-
-&#x20; • Import androidx.compose.material3.TextField
-
-&#x20; • Call EditNumberField() from TipTimeLayout() right after
-
-&#x20;   the first Text composable.
-
-&#x20; • Pass modifier = Modifier.padding(bottom = 32.dp).fillMaxWidth()
-
-&#x20; • Import androidx.compose.foundation.layout.fillMaxWidth
+&#x20; • Use the state + calculateTip() to update the Tip Amount text.
 
 
 
 Acceptance
 
-&#x20; • Running the app shows: Calculate Tip, an empty text box,
-
-&#x20;   and Tip Amount: $0.00
+&#x20; • Typing a bill amount updates the Tip Amount live at 15%.
 
