@@ -40,11 +40,13 @@ Progress
 
 &#x20; ✅ Notes created
 
-&#x20; ✅ Project scaffolded (Tip Time)
+&#x20; ✅ Starter code added from Google's starter branch
 
-&#x20; ⬜ UI implemented
+&#x20; ✅ Project runs on emulator ("Calculate Tip" + "Tip Amount: $0.00")
 
-&#x20; ⬜ State wired up
+&#x20; ⬜ Add EditNumberField composable with TextField
 
-&#x20; ⬜ Tested on emulator
+&#x20; ⬜ Wire up state (remember + mutableStateOf)
+
+&#x20; ⬜ Test on emulator
 
