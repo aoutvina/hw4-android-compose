@@ -1,34 +1,56 @@
-✦ Remaining Practice Tasks — Codelab 1
+✦ Codelab 1 — Intro to State in Compose
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
 
-Task A — Add state to EditNumberField
+Objective
 
-&#x20; • Inside EditNumberField, remember a String state (initially empty).
-
-&#x20; • Pass it to TextField's value parameter.
-
-&#x20; • Update it inside onValueChange.
-
-&#x20; • Imports: getValue, mutableStateOf, remember, setValue
+&#x20; Build the "Tip Time" tip calculator app.
 
 
 
-Task B — Hoist state to TipTimeLayout
+Final Features
 
-&#x20; • Move the state variable up into TipTimeLayout.
+&#x20; • TextField for the bill amount
 
-&#x20; • Pass value + onValueChange down to EditNumberField.
+&#x20; • Live tip calculation (15% hardcoded)
 
-&#x20; • Convert the user's input to a Double (with toDoubleOrNull fallback).
-
-&#x20; • Use the state + calculateTip() to update the Tip Amount text.
+&#x20; • Display in local currency format
 
 
 
-Acceptance
+Concepts Learned
 
-&#x20; • Typing a bill amount updates the Tip Amount live at 15%.
+&#x20; • What state means in a Compose UI
+
+&#x20; • remember { mutableStateOf(...) }
+
+&#x20; • State hoisting — moving state up to a parent composable
+
+&#x20; • Passing state down + events up
+
+
+
+Reference
+
+&#x20; https://developer.android.com/codelabs/basic-android-kotlin-compose-intro-state
+
+
+
+Progress
+
+&#x20; ✅ Notes created
+
+&#x20; ✅ Starter code added from Google's starter branch
+
+&#x20; ✅ Project runs on emulator
+
+&#x20; ✅ EditNumberField composable with TextField
+
+&#x20; ✅ State added (remember + mutableStateOf)
+
+&#x20; ✅ State hoisted + tip calculation wired up
+
+&#x20; ✅ Tested: entered 50, tip shows $7.50
 
