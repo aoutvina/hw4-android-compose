@@ -16,6 +16,7 @@
 package com.example.tiptime
 
 import android.os.Bundle
+import androidx.annotation.StringRes
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -83,6 +84,7 @@ fun TipTimeLayout() {
                 .align(alignment = Alignment.Start)
         )
         EditNumberField(
+            label = R.string.bill_amount,
             value = amountInput,
             onValueChange = { amountInput = it },
             modifier = Modifier.padding(bottom = 32.dp).fillMaxWidth()
@@ -97,6 +99,7 @@ fun TipTimeLayout() {
 
 @Composable
 fun EditNumberField(
+    @StringRes label: Int,
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier
